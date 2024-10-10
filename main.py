@@ -1,16 +1,17 @@
 
 history = []
 
+
 def main():
     while True:
-        print('Calculadora Simple')
+        print('CALCULADORA SIMPLE')
         print('1. Sumar')
         print('2. Restar')
         print('3. Multiplicar')
         print('4. Dividir')
         print('5. Mostrar Historial')
-        print ('0. Salir')
-        
+        print('0. Salir')
+
         option = input('Seleccione una opción (0-5): ')
         if option in ['0']:
             break
@@ -39,15 +40,15 @@ def main():
                 print(f'{number_1} / {number_2} = {resultado}')
         elif option == '5':
             if history:
-                print ('>>>Historial de Operaciones:<<<')
+                print('>>>HISTORIAL DE OPERACIONES:<<<')
                 for operation in history:
                     print(operation)
             else:
-                print ('Sin operaciones aun...')
-            
+                print('Sin operaciones aun...')
+
         else:
             print('Opción no válida. Por favor, seleccione una opción del 1 al 5.')
-            
-      
+
+
 if __name__ == "__main__":
     main()
