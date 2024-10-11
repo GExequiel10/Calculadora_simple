@@ -1,53 +1,29 @@
+import utils as console
 
-history = []
+from utils import show_history
+from core.operations import add, subtract, multiply, divide
 
 
 def main():
+    console.clear_console()
     while True:
-        print('CALCULADORA SIMPLE')
-        print('1. Sumar')
-        print('2. Restar')
-        print('3. Multiplicar')
-        print('4. Dividir')
-        print('5. Mostrar Historial')
-        print('0. Salir')
+        console.display_menu()
+        choice = input('Seleccione una opción (0-5): ')
 
-        option = input('Seleccione una opción (0-5): ')
-        if option in ['0']:
+        if choice == '0':
             break
-        elif option in ['1', '2', '3', '4']:
-            number_1 = float(input('Ingrese el primer operando: '))
-            number_2 = float(input('Ingrese el segundo operando: '))
-#            resultado = 0
-
-            if option == '0':
-                break
-            if option == '1':
-                resultado = number_1 + number_2
-                history.append(f'{number_1} + {number_2} = {resultado}')
-                print(f'{number_1} + {number_2} = {resultado}')
-            elif option == '2':
-                resultado = number_1 - number_2
-                history.append(f'{number_1} - {number_2} = {resultado}')
-                print(f'{number_1} - {number_2} = {resultado}')
-            elif option == '3':
-                resultado = number_1 * number_2
-                history.append(f'{number_1} * {number_2} = {resultado}')
-                print(f'{number_1} * {number_2} = {resultado}')
-            elif option == '4':
-                resultado = number_1 / number_2
-                history.append(f'{number_1} / {number_2} = {resultado}')
-                print(f'{number_1} / {number_2} = {resultado}')
-        elif option == '5':
-            if history:
-                print('>>>HISTORIAL DE OPERACIONES:<<<')
-                for operation in history:
-                    print(operation)
-            else:
-                print('Sin operaciones aun...')
-
+        if choice == '1':
+            add()
+        elif choice == '2':
+            subtract()
+        elif choice == '3':
+            multiply()
+        elif choice == '4':
+            divide()
+        elif choice == '5':
+            show_history()
         else:
-            print('Opción no válida. Por favor, seleccione una opción del 1 al 5.')
+            console.print('Opción no válida. Por favor, seleccione una opción del 0 al 5.', style='bold red')
 
 
 if __name__ == "__main__":
